@@ -8,7 +8,6 @@ This project is not intended for production use and should be shifted over into 
 
 This api provides a json version of the contributions activity table on a github user's profile page. This was created because github does not provide an api for retrieving a users' total contributions.
 
-Currently hosted on heroku: https://github-contributions-api.herokuapp.com
 
 ### Usage
 
