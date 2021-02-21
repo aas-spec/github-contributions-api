@@ -12,49 +12,33 @@ Currently hosted on heroku: https://github-contributions-api.herokuapp.com
 
 ### Usage
 
-`GET /api/activity/:user`
+`GET http://host:3300/api/:user`
 
 Returns whether or not user was active on a given day within the last year
 
 ```js
 {
   "data": {
-    "2016": {
-      "9": {
-        "25": false,
-        "26": true,
-        "27": true,
-        "28": true,
-        "29": true,
-        "30": true
-      },
-      //...
+     "2020-02-23": {
+                "count": 1,
+                "level": 1,
+                "color": "#9be9a8"
+            },
+            "2020-02-24": {
+                "count": 21,
+                "level": 3,
+                "color": "#30a14e"
+            },
+            "2020-02-25": {
+                "count": 15,
+                "level": 3,
+                "color": "#30a14e"
+            }, //...
     }
   }
 }
 ```
-----
-`GET /api/count/:user`
 
-Returns activity count of user on a given day within the last year
-
-```js
-{
-  "data": {
-    "2016": {
-      "9": {
-        "25": 0,
-        "26": 10,
-        "27": 6,
-        "28": 3,
-        "29": 7,
-        "30": 6
-      },
-      //...
-    }
-  }
-}
-```
 
 ### Installation
 
