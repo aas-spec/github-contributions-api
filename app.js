@@ -10,18 +10,18 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/:user/:format', (req, res, next) => {
-  const { format, user } = req.params;
+app.get('/api/:format/:user', (req, res, next) => {
+  const { format, user  } = req.params;
 
   // Render 400 if invalid format given
   const VALID_FORMATS = ['activity', 'count'];
   if (!VALID_FORMATS.includes(format)) {
-    return next({ 
-      status: 400, 
+    return next({
+      status: 400,
       message: `Format must be one of ${JSON.stringify(VALID_FORMATS)}`
     });
   }
-
+  console.log('test');
   const url = `https://www.github.com/${user}`;
   request.get(url, (err, response, body) => {
     // Return error if request had an error
@@ -44,11 +44,14 @@ app.get('/:user/:format', (req, res, next) => {
       })();
 
       // Parse contributions date
-      const [year, month, day] = $(rect).data('date').split('-').map(
-        dateNum => parseInt(dateNum));
-      _.setWith(data, [year, month, day], value, Object);
+      if ($(rect).data('date')!==undefined) {
+        const [year, month, day] = $(rect).data('date').split('-').map(
+            dateNum => parseInt(dateNum));
+        _.setWith(data, [year, month, day], value, Object);
+      }
 
       return data;
+
     }, {});
 
     // Render parsed contributions data

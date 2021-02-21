@@ -12,7 +12,7 @@ Currently hosted on heroku: https://github-contributions-api.herokuapp.com
 
 ### Usage
 
-`GET /:user/activity`
+`GET /api/activity/:user`
 
 Returns whether or not user was active on a given day within the last year
 
@@ -34,7 +34,7 @@ Returns whether or not user was active on a given day within the last year
 }
 ```
 ----
-`GET /:user/count`
+`GET /api/count/:user`
 
 Returns activity count of user on a given day within the last year
 
@@ -61,7 +61,7 @@ Returns activity count of user on a given day within the last year
 Clone this repo:
 
 ```sh
-git clone https://github.com/Didericis/github-contributions-api.git
+git clone https://github.com/aas-spec/github-contributions-api.git
 ```
 
 Install node modules:
